@@ -37,54 +37,68 @@ def doctor_details(url):
             print (fullName)
 
     phone_label= soup1.find(lambda tag:tag.name=="span" and "Phone Number" in tag.text)
-    phoneNumber = phone_label.parent.find_all('span')[2].text.strip()
-    print (phoneNumber)
+    phoneNumber=''
+    if(phone_label):
+        phoneNumber = phone_label.parent.find_all('span')[2].text.strip()
+        print (phoneNumber)
 
     years_in_practise_label= soup1.find(lambda tag:tag.name=="span" and "Years in Practice" in tag.text)
-    years_in_practise = years_in_practise_label.parent.find_all('span')[2].text.strip()
-    print (years_in_practise)
+    years_in_practise=''
+    if(years_in_practise_label):
+        years_in_practise = years_in_practise_label.parent.find_all('span')[2].text.strip()
+        print (years_in_practise)
 
     languages_label= soup1.find(lambda tag:tag.name=="span" and "Languages" in tag.text)
-    languages = languages_label.parent.find_all('span')[2].text.strip()
-    print (languages)
+    languages=''
+    if(languages_label):
+        languages = languages_label.parent.find_all('span')[2].text.strip()
+        print (languages)
 
+        
     office_location = soup1.find(attrs={"data-js-id": "doctor-address"}).text
-    print (office_location)
+    if(office_location):
+        print (office_location)
+    else:
+        office_location=''   
 
     hospital_affiliation=[]
     hospital_affiliation_label= soup1.find(lambda tag:tag.name=="h2" and "Hospital Affiliation" in tag.text)
-    for x in hospital_affiliation_label.parent.find_all('div',class_="flex-small-12 padding-flush"):
-        hospital_affiliation_name = x.find('h4').text
-        hospital_affiliation_dscr = x.find('p').text
-        print (hospital_affiliation_name,hospital_affiliation_dscr)
-        hospital_affiliation.append(hospital_affiliation_name)
+    if(hospital_affiliation_label):
+        for x in hospital_affiliation_label.parent.find_all('div',class_="flex-small-12 padding-flush"):
+            hospital_affiliation_name = x.find('h4').text
+            hospital_affiliation_dscr = x.find('p').text
+            print (hospital_affiliation_name,hospital_affiliation_dscr)
+            hospital_affiliation.append(hospital_affiliation_name)
     
     specialities =[]
     Sub_specialities=[]
     specialities_label= soup1.find(lambda tag:tag.name=="h3" and "Specialties" in tag.text)
-    for x in specialities_label.parent.find_all('a'):
-        speciality_name = x.text
-        print (speciality_name)
-        specialities.append(speciality_name)
-    for x in specialities_label.parent.find_all('p', class_='text-large block-tight'):
-        sub_speciality_name = x.text
-        Sub_specialities.append(sub_speciality_name)
-        print (sub_speciality_name)
+    if(specialities_label):
+        for x in specialities_label.parent.find_all('a'):
+            speciality_name = x.text
+            print (speciality_name)
+            specialities.append(speciality_name)
+        for x in specialities_label.parent.find_all('p', class_='text-large block-tight'):
+            sub_speciality_name = x.text
+            Sub_specialities.append(sub_speciality_name)
+            print (sub_speciality_name)
 
 
     education_label= soup1.find(lambda tag:tag.name=="h2" and "Education & Medical Training" in tag.text)
     education =[]
-    for x in education_label.parent.find_all('li'):
-        edu_name = x.contents[0]
-        print (edu_name)
-        education.append(edu_name)
+    if(education_label):
+        for x in education_label.parent.find_all('li'):
+            edu_name = x.contents[0]
+            print (edu_name)
+            education.append(edu_name)
 
     certification_label= soup1.find(lambda tag:tag.name=="h2" and "Certifications & Licensure" in tag.text)
     certifications = []
-    for x in certification_label.parent.find_all('li'):
-        certification_name = x.contents[0]
-        print (certification_name)
-        certifications.append(certification_name)
+    if(certification_label):
+        for x in certification_label.parent.find_all('li'):
+            certification_name = x.contents[0]
+            print (certification_name)
+            certifications.append(certification_name)
     
 
  
