@@ -111,7 +111,7 @@ for i in list_of_cities:
 for i in list_of_specl:
     list_of_doctors=get_links(i,'block-normal block-loose-for-large-up')
 with open("alldoctors.json", 'w') as outfile:
-    for i in list_of_doctors:
-        doctor_details_json=doctor_details(list_of_doctors[i])
+    for doctor in list_of_doctors:
+        doctor_details_json=doctor_details(doctor)
         json.dump(doctor_details_json, outfile)
         outfile.write('\n')
