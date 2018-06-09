@@ -1,0 +1,57 @@
+Elastic search1
+
+
+Total number of doctors by city
+
+allentown 20
+
+absecon 9
+
+
+Total number of doctors by Specialities
+
+Allergy & Immunology 19
+
+Dermatology 8
+
+Internal Medicine 1
+
+Pathology 1
+
+cardiologists 1
+
+dermatologists 1
+
+
+Total number of doctors by Experience
+
+0.0-4.0 : 1
+
+5.0-10.0 : 0
+
+10.0-20.0 : 1
+
+20.0-* : 27
+
+
+Total number of doctors by Zipcode
+
+08558 : 5
+
+08221 : 2
+
+08244 : 2
+
+08520 : 2
+
+08619 : 2
+
+08816 : 2
+
+18940 : 2
+
+07410 : 1
+
+07726 : 1
+
+07728 : 1
