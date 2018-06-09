@@ -81,7 +81,7 @@ def doctor_details(url,city_name):
     office_location = soup1.find(attrs={"data-js-id": "doctor-address"}).text
     office_location =office_location.strip()
     if(office_location):
-        zipcode= office_location[-4:]
+        zipcode= office_location[-5:]
     else:
         zipcode=''
         office_location=''   
